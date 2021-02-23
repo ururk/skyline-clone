@@ -51,9 +51,9 @@ rightText(year);
 pad = .1; // Amount to overlap shapes
 cubePad = .1; // Amount to grow the cubes so that touching surfaces are made into one piece
 
-<%= drawCubeCalls %>
+<%= drawBarCalls %>
 
-module drawCube(height, x, y) {
+module drawBar(height, x, y) {
     finalCubeHeight = height*14*1.8;
     // Translate starting position
     translate([-leftStartingPosition, topStartingPosition, baseHeight]) {

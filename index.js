@@ -77,14 +77,14 @@ let scaleAndPackContribData = (commitData) => {
 	return scaledWeekData;
 }
 
-let writeOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
+let generateOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
 	let openScadFile = fs.readFileSync('./src/skyline.scad').toString();
 	let overrides = require(`./overrides/${overrideFile}.js`);
 
 	let openScadCommands = '';
 
 	for (week of scaledWeekData) {
-		openScadCommands += `drawCube(${week[0]}, ${week[1]}, ${week[2]});`;
+		openScadCommands += `drawBar(${week[0]}, ${week[1]}, ${week[2]});`;
 	}
 
 	let compiled = _.template(openScadFile);
@@ -93,10 +93,10 @@ let writeOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
 		...overrides.overrides,
 		username: commitData.username,
 		year: commitData.year,
-		drawCubeCalls: openScadCommands
+		drawBarCalls: openScadCommands
 	});
 
-	let scadFilename = `skyline_${commitData.username}_${commitData.year}.scad`;
+	let scadFilename = `skyline_${commitData.username}_${commitData.year}-${overrideFile}.scad`;
 
 	fs.writeFileSync(`${EXPORT_DIR}${scadFilename}`, compiledString);
 
@@ -110,7 +110,7 @@ let generateStl = (openSCADfile, fileSuffix) => {
 	console.log(`((((( this might take some time )))))`);
 
 	// openscad -o ./exported/skyline_.stl exported/skyline_ururk_2020.scad
-	spawnSync('openscad', ['-o', `${EXPORT_DIR}${openSCADfile.replace('.scad', '')}-${fileSuffix.replace('.js', '')}.stl`, `${EXPORT_DIR}${openSCADfile}`]);
+	spawnSync('openscad', ['-o', `${EXPORT_DIR}${openSCADfile.replace('.scad', '')}.stl`, `${EXPORT_DIR}${openSCADfile}`]);
 }
 
 let main = async () => {
@@ -120,7 +120,11 @@ let main = async () => {
 	// List the directory contents
 	let files = fs.readdirSync(EXPORT_DIR);
 	let cacheFiles = [];
-	let overrideFiles = [];
+	let overrideFiles = [
+		'standard',
+		'fully_hollow_base',
+		'hollow_base_with_escape_hole'
+	];
 	let suggestedUsername = '';
 	let defaultOverride = 0;
 	let suggestedYear = (new Date()).getFullYear() - 1;
@@ -138,9 +142,10 @@ let main = async () => {
 
 	for (const fileIndex in files) {
 		if (files[fileIndex].indexOf('.js') > 0) {
-			overrideFiles.push(files[fileIndex].replace('.js', ''));
-			if (files[fileIndex] === 'defaults.js') {
-				defaultOverride = fileIndex;
+			let fileShortName = files[fileIndex].replace('.js', '');
+
+			if (!overrideFiles.includes(fileShortName)) {
+				overrideFiles.push(fileShortName);
 			}
 		}
 	}
@@ -190,9 +195,7 @@ let main = async () => {
 			name: 'overrideFile',
 			type: 'list',
 			message: 'Pick an override file:',
-			default: () => {
-				return defaultOverride;
-			},
+			default: defaultOverride,
 			choices: overrideFiles
 		});
 	}
@@ -203,7 +206,7 @@ let main = async () => {
 
 		let scaledWeekData = scaleAndPackContribData(commitData);
 
-		let openScadFile = writeOpenSCAD(commitData, scaledWeekData, answers.overrideFile);
+		let openScadFile = generateOpenSCAD(commitData, scaledWeekData, answers.overrideFile);
 
 		generateStl(openScadFile, answers.overrideFile);
 	})

@@ -6,7 +6,7 @@ This (tiny) project was created to get past some shortcomings of the [GitHub-gen
   1. Minimize errors in file geometry
   2. Create printable file for most slicers without need for repair
   3. Allow end-users to customize the output
-  4. Reduce print cost for powder-based printed parts. Comparing the `defaults.js` with the `hollow_base_with_escape_hole.js` default settings, using Shapeways and in Steel, resulted in a savings of $96.39 ($211.29 solid vs $114.90 hollow).
+  4. Reduce print cost for powder-based printed parts. Comparing `original.js` with the `hollow_base_with_escape_hole.js` settings, using Shapeways and in Steel, resulted in a savings of $96.39 ($211.29 solid vs $114.90 hollow).
 
 ## Requirements
 
@@ -18,7 +18,7 @@ This (tiny) project was created to get past some shortcomings of the [GitHub-gen
 
 ## Setup
 
-  1. If you want to change some of the defaults, duplicate one of the defaults files in the `overrides` folder and rename it. Modify the settings and choose it when you run the script.
+  1. If you want to change some of the defaults, duplicate one of the files in the `overrides` folder and rename it. Modify the settings and choose it when you run the script.
 
   2. Install `node.js` dependencies
 
