@@ -3,7 +3,7 @@ Clone of GitHub's "Skyline" 3D model generator - but this one uses OpenSCAD
 
 This (tiny) project was created to get past some shortcomings of the [GitHub-generated skyline](https://skyline.github.com) stl:
 
-  1. Minize errors in file geometry
+  1. Minimize errors in file geometry
   2. Create printable file for most slicers without need for repair
   3. Allow end-users to customize the output
 
