@@ -90,7 +90,7 @@ let generateOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
 	let compiled = _.template(openScadFile);
 
 	compiledString = compiled({
-		...overrides.overrides,
+		...overrides,
 		username: commitData.username,
 		year: commitData.year,
 		drawBarCalls: openScadCommands
@@ -141,7 +141,7 @@ let main = async () => {
 	files = fs.readdirSync('./overrides/');
 
 	for (const fileIndex in files) {
-		if (files[fileIndex].indexOf('.js') > 0) {
+		if (files[fileIndex].indexOf('.js') > 0 && files[fileIndex] !== 'example.js') {
 			let fileShortName = files[fileIndex].replace('.js', '');
 
 			if (!overrideFiles.includes(fileShortName)) {

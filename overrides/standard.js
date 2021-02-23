@@ -1,7 +1,7 @@
 let overrides = {
 	fontSize: 5,
 	fontExtrude: 1,	// How much to extrude the font from the face of the base
-	fontFamily: 'Helvetica:style=Bold', // See https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Text
+	fontFamily: 'Helvetica:style=Normal', // See https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Text
 
 	logoExtrude: 1, // How much to extrude the logo from the face of the base
 
@@ -18,6 +18,4 @@ let overrides = {
 	escapeHole: 'false' // Useful if you want to print this in metal, as the reclaimed powder may be deducted from the cost depending on 3D print provider.
 }
 
-module.exports = {
-	overrides: overrides
-};
+module.exports = overrides;
