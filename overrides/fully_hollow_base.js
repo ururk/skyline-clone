@@ -3,7 +3,7 @@ let overrides = {
 	fontExtrude: 1,	// How much to extrude the font from the face of the base
 	fontFamily: 'Helvetica:style=Bold', // See https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Text
 
-	logoExtrude: 5, // How much to extrude the logo from the face of the base
+	logoExtrude: 1, // How much to extrude the logo from the face of the base
 
 	cubeSize: 2.574, // Cube size is set directly, keep in mind 53 need to fit on the base in the long direction, and 7 in the narrow
 
