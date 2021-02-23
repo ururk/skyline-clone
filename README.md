@@ -4,7 +4,7 @@ Clone of GitHub's "Skyline" 3D model generator - but this one uses OpenSCAD
 This (tiny) project was created to get past some shortcomings of the [GitHub-generated skyline](https://skyline.github.com) stl:
 
   1. Minize errors in file geometry
-  2. Create printable file in most slicers without need for repair
+  2. Create printable file for most slicers without need for repair
   3. Allow end-users to customize the output
 
 ## Requirements
@@ -15,7 +15,7 @@ This (tiny) project was created to get past some shortcomings of the [GitHub-gen
 
 ## Setup
 
-  1. If you want to change some of the defaults, duplicate `overrides/defaults.js` and rename it. Modify the settings and choose it when you run the script.
+  1. If you want to change some of the defaults, duplicate one of the defaults files in the `overrides` folder and rename it. Modify the settings and choose it when you run the script.
 
 ## Running
 
@@ -24,5 +24,5 @@ This (tiny) project was created to get past some shortcomings of the [GitHub-gen
 npm i
 
 # run
-npm run
+npm run start
 ```
