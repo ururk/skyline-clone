@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Project-specific directories and files
+exported
+overrides/*
+!overrides/defaults.js
+!overrides/fully_hollow_base.js
+!overrides/hollow_base_with_escape_hole.js
