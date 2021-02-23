@@ -81,9 +81,6 @@ let writeOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
 	let openScadFile = fs.readFileSync('./src/skyline.scad').toString();
 	let overrides = require(`./overrides/${overrideFile}.js`);
 
-console.log(overrides);
-
-
 	let openScadCommands = '';
 
 	for (week of scaledWeekData) {
@@ -117,6 +114,9 @@ let generateStl = (openSCADfile) => {
 }
 
 let main = async () => {
+	// Make export directory - this creates it if it is missing
+	fs.mkdirSync(EXPORT_DIR, { recursive: true });
+
 	// List the directory contents
 	let files = fs.readdirSync(EXPORT_DIR);
 	let cacheFiles = [];
@@ -199,9 +199,6 @@ let main = async () => {
 
 	inquirer.prompt(inquirerPrompts)
 	.then(async (answers) => {
-		// Make export directory
-		fs.mkdirSync(EXPORT_DIR, { recursive: true });
-
 		let commitData = await getCommitHistory(answers.username, answers.year);
 
 		let scaledWeekData = scaleAndPackContribData(commitData);
