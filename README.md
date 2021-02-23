@@ -10,8 +10,10 @@ This (tiny) project was created to get past some shortcomings of the [GitHub-gen
 ## Requirements
 
   1. Install [OpenSCAD](https://openscad.org)
-    * OpenSCAD set up as `openscad` in your shell [Command Line Instructions](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment)
-  3. Install Node.js (tested with 14, but should work with older and newer versions)
+
+    - OpenSCAD set up as `openscad` in your shell - see [Command Line Instructions](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment)
+
+  2. Install Node.js (tested with 14, but should work with older and newer versions)
 
 ## Setup
 
