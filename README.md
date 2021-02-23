@@ -13,18 +13,22 @@ This (tiny) project was created to get past some shortcomings of the [GitHub-gen
 
       * OpenSCAD set up as `openscad` in your shell - see [Command Line Instructions](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment)
 
-  2. Install Node.js (tested with 14, but should work with older and newer versions)
+  2. Install [node.js](https://nodejs.org/en/) (tested with 14, but should work with older and newer versions)
 
 ## Setup
 
   1. If you want to change some of the defaults, duplicate one of the defaults files in the `overrides` folder and rename it. Modify the settings and choose it when you run the script.
 
-## Running
+  2. Install `node.js` dependencies
 
 ```shell
 # install dependencies
 npm i
+```
 
+## Running
+
+```shell
 # run
 npm run start
 ```
