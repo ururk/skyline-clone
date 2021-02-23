@@ -105,12 +105,12 @@ let writeOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
 	return scadFilename;
 }
 
-let generateStl = (openSCADfile) => {
+let generateStl = (openSCADfile, fileSuffix) => {
 	console.log(`~~~~~ Generating STL using ${EXPORT_DIR}${openSCADfile} ~~~~~`);
 	console.log(`((((( this might take some time )))))`);
 
 	// openscad -o ./exported/skyline_.stl exported/skyline_ururk_2020.scad
-	spawnSync('openscad', ['-o', `${EXPORT_DIR}${openSCADfile.replace('.scad', '.stl')}`, `${EXPORT_DIR}${openSCADfile}`]);
+	spawnSync('openscad', ['-o', `${EXPORT_DIR}${openSCADfile.replace('.scad', '')}-${fileSuffix.replace('.js', '')}.stl`, `${EXPORT_DIR}${openSCADfile}`]);
 }
 
 let main = async () => {
@@ -205,7 +205,7 @@ let main = async () => {
 
 		let openScadFile = writeOpenSCAD(commitData, scaledWeekData, answers.overrideFile);
 
-		generateStl(openScadFile);
+		generateStl(openScadFile, answers.overrideFile);
 	})
 	.catch(error => {
 		if(error.isTtyError) {
