@@ -36,6 +36,6 @@ npm run start
 
 ## Customizing
 
-Three default settings files are included - just duplicate the file you'd like to start with and make some changes. When the scripe runs it checks the `overrides` directory for any `.js` files.
+Three default settings files are included in the `overrides` folder. Just duplicate the file you'd like to start with and make some changes. When the script runs it checks the `overrides` directory for any `.js` files and let's you choose one of them to use.
 
-Alternatively, export using one of the defaults (or your own) and open the exported `.scad` file and customize in OpenSCAD.
+After exporting, you can open the exported `.scad` file and customize iit directly in OpenSCAD.

@@ -84,7 +84,7 @@ let generateOpenSCAD = (commitData, scaledWeekData, overrideFile) => {
 	let openScadCommands = '';
 
 	for (week of scaledWeekData) {
-		openScadCommands += `drawBar(${week[0]}, ${week[1]}, ${week[2]});`;
+		openScadCommands += `drawBar(${week[0]}, ${week[1]}, ${week[2]});\n`;
 	}
 
 	let compiled = _.template(openScadFile);

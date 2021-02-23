@@ -52,7 +52,6 @@ pad = .1; // Amount to overlap shapes
 cubePad = .1; // Amount to grow the cubes so that touching surfaces are made into one piece
 
 <%= drawBarCalls %>
-
 module drawBar(height, x, y) {
     finalCubeHeight = height*14*1.8;
     // Translate starting position
