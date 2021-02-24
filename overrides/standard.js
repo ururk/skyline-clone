@@ -1,7 +1,7 @@
 let overrides = {
 	fontSize: 5,
 	fontExtrude: 1,	// How much to extrude the font from the face of the base
-	fontFamily: 'Helvetica:style=Normal', // See https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Text
+	fontFamily: 'Helvetica Neue:style=Bold', // See https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Text
 
 	logoExtrude: 1, // How much to extrude the logo from the face of the base
 
